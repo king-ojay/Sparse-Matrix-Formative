@@ -30,7 +30,7 @@ class SparseMatrix:
             with open(file_path, 'r') as f:
                 lines = f.readlines()
         except Exception as e:
-            raise ValueError(f"Error reading file: {e}")
+            raise ValueError("Error reading file: {}".format(e))
 
         # Remove empty lines and whitespace
         lines = [line.strip() for line in lines if line.strip()]
@@ -162,7 +162,7 @@ class SparseMatrix:
           (i, j, value)
         for each nonzero entry.
         """
-        lines = [f"rows={self.num_rows}", f"cols={self.num_cols}"]
+        lines = ["rows={}".format(self.num_rows), "cols={}".format(self.num_cols)]
         for (i, j), val in sorted(self.data.items()):
-            lines.append(f"({i}, {j}, {val})")
+            lines.append("({}, {}, {})".format(i, j, val))
         return "\n".join(lines)
