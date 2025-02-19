@@ -1,7 +1,10 @@
-#!/usr/bin/env pyhton3
 from sparse_matrix import SparseMatrix
 
 def main():
+    print("DEBUG: main() started")
+    print("Sparse Matrix Operations")
+    print("Select an operation: add, subtract, multiply")
+    op = input("Enter operation: ").strip().lower()
     """
     Main function to interact with the user:
       1. Prompts the user to choose an operation (add, subtract, multiply).

@@ -10,7 +10,7 @@ class SparseMatrix:
         self.num_cols = num_cols
         self.data = {}  # Only nonzero entries are stored
 
-   @classmethod
+    @classmethod
     def from_file(MatrixClass, file_path):
         """
         Creates a SparseMatrix from a file.
@@ -24,20 +24,20 @@ class SparseMatrix:
         If any line has the wrong format, it raises a ValueError.
         
         Note: I used 'MatrixClass' instead of 'cls'
-              but they  serve the same purpose: referring to the class-SparseMatrix itself.
+              but they serve the same purpose: referring to the class (SparseMatrix) itself.
         """
-    try:
+        try:
             with open(file_path, 'r') as f:
                 lines = f.readlines()
         except Exception as e:
-            raise ValueError(f"Error reading file: {e}")
+            raise ValueError("Error reading file: {}".format(e))
 
-        # Remove empty lines and  whitespace
+        # Remove empty lines and whitespace
         lines = [line.strip() for line in lines if line.strip()]
         if len(lines) < 2:
             raise ValueError("Input file has wrong format")           
 
-# Parse the number of rows
+        # Parse the number of rows
         if not lines[0].startswith("rows="):
             raise ValueError("Input file has wrong format")
         try:
@@ -53,7 +53,7 @@ class SparseMatrix:
         except Exception:
             raise ValueError("Input file has wrong format")
 
-        # Create a new matrix using MatriClass
+        # Create a new matrix using MatrixClass
         matrix = MatrixClass(num_rows, num_cols)
 
         # Process subsequent lines containing nonzero entries
@@ -77,9 +77,7 @@ class SparseMatrix:
 
         return matrix
 
-
-
-def getElement(self, row, col):
+    def getElement(self, row, col):
         """
         Returns the element at the given (row, col) position.
         If the element is not explicitly stored, returns 0.
@@ -164,7 +162,7 @@ def getElement(self, row, col):
           (i, j, value)
         for each nonzero entry.
         """
-        lines = [f"rows={self.num_rows}", f"cols={self.num_cols}"]
+        lines = ["rows={}".format(self.num_rows), "cols={}".format(self.num_cols)]
         for (i, j), val in sorted(self.data.items()):
-            lines.append(f"({i}, {j}, {val})")
+            lines.append("({}, {}, {})".format(i, j, val))
         return "\n".join(lines)
