@@ -1,5 +1,5 @@
 # Sparse-Matrix-Formative
-This repository contains a concise Python implementation of a Sparse Matrix data structure along with basic operations (addition, subtraction, and multiplication). The code reads matrix data from a file, stores only nonzero entries for memory efficiency, and supports matrix operations with proper error handling.
+This repository contains a concise Python implementation of a Sparse Matrix data structure and basic operations (addition, subtraction, and multiplication). The code reads matrix data from a file, stores only nonzero entries for memory efficiency, and supports matrix operations with proper error handling.
 
 Features:
 - Sparse Representation: Uses a dictionary to store only nonzero elements.
@@ -18,13 +18,11 @@ Usage:
 3. Run the program with:
 python3 main.py
 
-vbnet
-Copy
-Edit
-Follow the on-screen prompts to select an operation and input the file paths.
+
+You can follow the on-screen prompts to select an operation and input the file paths.
 
 AI Assistance:
-During the course of this project, an ai tool was used for formating and error fixing
+During this project, an AI tool was used for formatting and error-fixing
 
 
 
